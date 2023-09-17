@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Title of the page, which will be set dynamically -->
+    <title>{{ title }}</title>
+</head>
+<body>
+
+    <!-- Greet the user with their name -->
+    <h1>Hello, {{ name }}!</h1>
+
+    <!-- Set and display the user's job title -->
+    {% set job = 'Developer' %}
+    <h3>Your Job: {{ job }}</h3>
+
+    <!-- Determine and display the user's career stage based on age -->
+    <h3>
+    {% set age = 25 %}
+    {% if age >= 18 and age <= 35 %}
+        You are a young Developer.
+    {% elseif age > 35 %}
+        You must be an Experienced Developer.
+    {% else %}
+        You are a Dev Kid.
+    {% endif %}
+    </h3>
+
+    <!-- List some of the user's skills -->
+    <h1>Your Skills:</h1>
+    <ul>
+    {% set skills = ['Python', 'JavaScript', 'SQL'] %}
+    {% for skill in skills %}
+        <li>{{ skill }}</li>
+    {% endfor %}
+    </ul>
+
+    <!-- Demonstrations of various filters in Twig -->
+    <h1>Fun with Filters:</h1>
+
+    <!-- Convert a string to uppercase -->
+    <p>Uppercase: {{ "hello"|upper }}</p>
+
+    <!-- Convert a string to lowercase -->
+    <p>Lowercase: {{ "HELLO"|lower }}</p>
+
+    <!-- Find the length of a string -->
+    <p>Length: {{ "hello"|length }}</p>
+
+    <!-- Display a default value if a variable is not defined -->
+    <p>Default: {{ undefined_variable|default("Default Value") }}</p>
+
+    <!-- Join an array into a string -->
+    <p>Join: {{ ['apple', 'banana', 'cherry']|join(', ') }}</p>
+
+    <!-- Display the current date -->
+    <p>Date: {{ "now"|date("m/d/Y") }}</p>
+
+    <!-- Slice a string to get a substring -->
+    <p>Slice: {{ "hello world"|slice(0, 5) }}</p>
+
+    <!-- Use a custom filter to reverse a string -->
+    {# Note: You'll need to define this custom filter in your PHP code. #}
+    <p>Custom Reverse: {{ "hello"|reverse }}</p>
+
+</body>
+</html>
